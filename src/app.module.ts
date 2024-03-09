@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
+import { CompanyModule } from './company/company.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { UsersModule } from './users/users.module';
       synchronize: true, //cuando se vaya a correr el API por primera vez ponerlo en TRUE
     }),
     UsersModule,
+    CompanyModule,
     
   ],
   controllers: [AppController],
