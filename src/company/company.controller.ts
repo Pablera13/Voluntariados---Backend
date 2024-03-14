@@ -18,17 +18,17 @@ export class CompanyController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.CompanyService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCompanyDto: UpdateCompanyDto) {
+  update(@Param('id') id: number, @Body() updateCompanyDto: UpdateCompanyDto) {
     return this.CompanyService.update(+id, updateCompanyDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.CompanyService.remove(+id);
   }
 }

@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { CompanyModule } from './company/company.module';
+import { SponsorshipModule } from './sponsorship/sponsorship.module';
 
 @Module({
   imports: [
@@ -14,12 +15,13 @@ import { CompanyModule } from './company/company.module';
       username: 'root',
       password: 'root',
       database: 'volunteeringDB',
-      entities: ["dist/**/*.entity.js"],
+      entities: ["dist/**/*.entity.js"], //Cambiar
       autoLoadEntities: true,
       synchronize: true, //cuando se vaya a correr el API por primera vez ponerlo en TRUE
     }),
     UsersModule,
     CompanyModule,
+    SponsorshipModule,
     
   ],
   controllers: [AppController],

@@ -7,11 +7,11 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class CompanyService {
+
   constructor(
     @InjectRepository(Company)
     private CompanyRepository: Repository<Company>,
   ){}
-
 
   async create(createCompanyDto: CreateCompanyDto) {
     return await this.CompanyRepository.save(createCompanyDto);
