@@ -25,8 +25,8 @@ export class CompanyService {
     return await this.CompanyRepository.findOneBy({id});
   }
 
-  async update(id: number, updateUserDto: UpdateCompanyDto) {
-    var updateUser = await this.CompanyRepository.update({id}, UpdateCompanyDto);
+  async update(id: number, updateCompanyDto: UpdateCompanyDto) {
+    var updateUser = await this.CompanyRepository.update({id}, updateCompanyDto);
     return updateUser;
   }
 
