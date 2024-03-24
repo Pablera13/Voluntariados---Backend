@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { CompanyService } from './Company.service';
+import { CompanyService } from './company.service';
 import { CreateCompanyDto } from './dto/create-Company.dto';
 import { UpdateCompanyDto } from './dto/update-Company.dto';
 

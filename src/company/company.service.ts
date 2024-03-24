@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { CreateCompanyDto } from './dto/create-Company.dto';
 import { UpdateCompanyDto } from './dto/update-Company.dto';
