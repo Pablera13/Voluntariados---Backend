@@ -12,6 +12,7 @@ import { VolunteerModule } from './volunteer/volunteer.module';
 import { VolunteerVolunteeringModule } from './volunteer_volunteering/volunteer_volunteering.module';
 import { VolunteeringModule } from './volunteering/volunteering.module';
 import { RatingsModule } from './ratings/ratings.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -20,17 +21,18 @@ import { RatingsModule } from './ratings/ratings.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'jordi1298',
-      database: 'volunteeringdb',
-      entities: ["dist/**/*.entity.js"], //Cambiar
+      password: 'root',
+      database: 'volunteeringDB',
+     
       autoLoadEntities: true,
-      synchronize: true, //cuando se vaya a correr el API por primera vez ponerlo en TRUE
+      synchronize: false, //cuando se vaya a correr el API por primera vez ponerlo en TRUE
     }),
     UsersModule,
     CompanyModule,
     SponsorshipModule,
     EventModule,
     DonationModule,
+    AuthModule,
     VolunteerModule,
     VolunteerVolunteeringModule,
     VolunteeringModule,
