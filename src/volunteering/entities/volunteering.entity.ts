@@ -1,35 +1,41 @@
-/* eslint-disable prettier/prettier */
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Company } from '../../company/entities/company.entity';
+import { Rating } from '../../ratings/entities/rating.entity';
+
+
 @Entity()
 export class Volunteering {
 
-@PrimaryGeneratedColumn()
-id: number;
+    @PrimaryGeneratedColumn()
+    id: number;
 
-@Column('int')
-Cedula: number;
+    @Column()
+    cedula: number;
 
-@Column({ length: 500 })
-ProyectName: string;
+    @Column({ length: 500 })
+    projectName: string;
 
-@Column()
-StartDate: Date;
+    @Column()
+    startDate: Date;
 
-@Column()
-FinishDate: Date;
+    @Column()
+    finishDate: Date;
 
-@Column()
-Category: string;
+    @Column()
+    category: string;
 
-@Column()
-quotas: string;
+    @Column()
+    quotas: string;
 
-@Column({length: 500})
-descripcion: string;
+    @Column({ length: 500 })
+    description: string;
 
-@Column()
-CompanyId: number;
+    @Column({ length: 500 })
+    contact: string;
 
-@Column({ length: 500 })
-Contact: string;
+    @ManyToOne(type => Company, company => company.volunteerings)
+    company: number;
+
+    @OneToMany(type => Rating, rating => rating.volunteering)
+    ratings: Rating[];
 }

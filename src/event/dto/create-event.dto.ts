@@ -6,5 +6,6 @@ export class CreateEventDto {
     address:string;
     category:string;
     quota:number;
-    contact:string;    
+    contact:string; 
+    company:number;   
 }

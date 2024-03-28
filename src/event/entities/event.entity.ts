@@ -1,4 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Company } from '../../company/entities/company.entity';
+import { Volunteer } from '../../volunteer/entities/volunteer.entity';
+
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn,ManyToMany, JoinTable } from 'typeorm';
 
 @Entity()
 export class Event {
@@ -25,6 +28,14 @@ export class Event {
 
   @Column()
   contact:string;
+
+  @ManyToOne(type => Company, company => company.events)
+  company :number;
+
+  @ManyToMany(() => Volunteer, volunteer => volunteer.events)
+  @JoinTable()
+  volunteers: Volunteer[];
 }
+
 
 

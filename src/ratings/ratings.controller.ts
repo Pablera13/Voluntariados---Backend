@@ -19,17 +19,17 @@ export class RatingsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.ratingsService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateRatingDto: UpdateRatingDto) {
+  update(@Param('id') id: number, @Body() updateRatingDto: UpdateRatingDto) {
     return this.ratingsService.update(+id, updateRatingDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.ratingsService.remove(+id);
   }
 }

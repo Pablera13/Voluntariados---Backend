@@ -1,6 +1,7 @@
 export class CreateDonationDto {
 
     id:number;
-    amount:number;   
+    amount:number;  
+    sponsorship:number; 
 }
 

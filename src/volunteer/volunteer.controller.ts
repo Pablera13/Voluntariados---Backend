@@ -19,17 +19,17 @@ export class VolunteerController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.volunteerService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateVolunteerDto: UpdateVolunteerDto) {
+  update(@Param('id') id: number, @Body() updateVolunteerDto: UpdateVolunteerDto) {
     return this.volunteerService.update(+id, updateVolunteerDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.volunteerService.remove(+id);
   }
 }

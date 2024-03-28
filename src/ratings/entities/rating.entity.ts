@@ -1,5 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Volunteer } from '../../volunteer/entities/volunteer.entity';
+import { Volunteering } from '../../volunteering/entities/volunteering.entity';
+
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity()
 export class Rating {
@@ -15,9 +18,10 @@ export class Rating {
   @Column()
   date: Date;
 
-  @Column('int')
-  volunteeringId: number;
+  @ManyToOne(type => Volunteering, volunteering => volunteering.ratings)
+  volunteering : number
 
-  @Column('int')
-  volunteerId: number;
+  @ManyToOne(type => Volunteer, volunteer => volunteer.ratings)
+  volunteer : number
 }
+

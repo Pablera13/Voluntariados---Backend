@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Sponsorship } from '../../sponsorship/entities/sponsorship.entity';
 
 @Entity()
 export class Donation {
@@ -7,6 +8,9 @@ export class Donation {
 
   @Column()
   amount:number;
+
+  @ManyToOne(type => Sponsorship, sponsorship => sponsorship.donations)
+  sponsorship: number
 
 }
 

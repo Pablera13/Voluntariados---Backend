@@ -6,8 +6,8 @@ export class CreateVolunteerDto {
     lastName1: string;
     lastName2: string;
     birthday: Date;
-    Address: string;
+    address: string;
     itsVerified: boolean = false;
-    userId: number;
+    user: number;
     
 }

@@ -13,6 +13,7 @@ import { VolunteerVolunteeringModule } from './volunteer_volunteering/volunteer_
 import { VolunteeringModule } from './volunteering/volunteering.module';
 import { RatingsModule } from './ratings/ratings.module';
 import { AuthModule } from './auth/auth.module';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -21,11 +22,11 @@ import { AuthModule } from './auth/auth.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'root',
-      database: 'volunteeringDB',
-     
-      autoLoadEntities: true,
+      password: '',
+      database: 'SistemaVoluntariadoDB',
+      entities: [join(__dirname, '**', '*.entity.js')],
       synchronize: false, //cuando se vaya a correr el API por primera vez ponerlo en TRUE
+      retryAttempts: 3,
     }),
     UsersModule,
     CompanyModule,
