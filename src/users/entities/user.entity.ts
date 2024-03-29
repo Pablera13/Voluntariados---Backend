@@ -14,8 +14,8 @@ export class User {
   password: string;
 
   @OneToOne(type => Company, company => company.user)
-  company: number;
+  company: Company;
 
   @OneToOne(type => Volunteer, volunteer => volunteer.user)
-  volunteer: number;
+  volunteer: Volunteer;
 } 

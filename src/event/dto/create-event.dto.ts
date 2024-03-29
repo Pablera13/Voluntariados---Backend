@@ -7,5 +7,5 @@ export class CreateEventDto {
     category:string;
     quota:number;
     contact:string; 
-    company:number;   
+    // company:number;   
 }

@@ -7,5 +7,5 @@ export class CreateSponsorshipDto {
     enddate: Date;
     goal:number;
     state:boolean;
-    company:number;
+    // company:number;
 }

@@ -23,7 +23,7 @@ import { join } from 'path';
       port: 3306,
       username: 'root',
       password: '',
-      database: 'SistemaVoluntariadoDB',
+      database: 'sistemavoluntariadodb',
       entities: [join(__dirname, '**', '*.entity.js')],
       synchronize: false, //cuando se vaya a correr el API por primera vez ponerlo en TRUE
       retryAttempts: 3,

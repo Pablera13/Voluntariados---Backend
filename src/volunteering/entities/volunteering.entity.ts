@@ -9,7 +9,7 @@ export class Volunteering {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column('int')
     cedula: number;
 
     @Column({ length: 500 })
@@ -24,7 +24,7 @@ export class Volunteering {
     @Column()
     category: string;
 
-    @Column()
+    @Column('int')
     quotas: string;
 
     @Column({ length: 500 })
@@ -34,7 +34,7 @@ export class Volunteering {
     contact: string;
 
     @ManyToOne(type => Company, company => company.volunteerings)
-    company: number;
+    company: Company;
 
     @OneToMany(type => Rating, rating => rating.volunteering)
     ratings: Rating[];

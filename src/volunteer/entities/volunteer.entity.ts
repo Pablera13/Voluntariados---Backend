@@ -2,8 +2,9 @@
 import { Rating } from '../../ratings/entities/rating.entity';
 import { Event } from '../../event/entities/event.entity';
 import { User } from '../../users/entities/user.entity';
+import { Donation } from '../../donation/entities/donation.entity';
 
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinTable,ManyToMany,OneToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinTable, ManyToMany, OneToOne, JoinColumn } from 'typeorm';
 @Entity()
 export class Volunteer {
   @PrimaryGeneratedColumn()
@@ -31,12 +32,16 @@ export class Volunteer {
   itsVerified: boolean = false;
 
   @OneToMany(type => Rating, rating => rating.volunteer)
-  ratings : Rating[]
+  ratings: Rating[]
 
   @ManyToMany(() => Event, event => event.volunteers)
   @JoinTable()
   events: Event[];
 
-  @OneToOne (type => User, user => user.volunteer , {onDelete: 'CASCADE'})
-  user: number;
+  @OneToOne(() => User)
+  @JoinColumn()
+  user: User
+
+  @OneToMany(type => Donation, donation => donation.volunteer)
+  donations: Donation[];
 }

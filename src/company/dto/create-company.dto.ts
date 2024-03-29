@@ -7,6 +7,6 @@ export class CreateCompanyDto {
     address:string;
     bankaccount:string;
     verified:boolean;
-    user: number;
+    // user: number;
     
 }

@@ -2,6 +2,7 @@ export class CreateDonationDto {
 
     id:number;
     amount:number;  
-    sponsorship:number; 
+    // sponsorship:number; 
+    // volunteer:number; 
 }
 

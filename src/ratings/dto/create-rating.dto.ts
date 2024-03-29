@@ -4,6 +4,6 @@ export class CreateRatingDto {
     description: string;
     stars: number;
     date: Date;
-    volunteering: number;
-    volunteer: number;
+    // volunteering: number;
+    // volunteer: number;
 }

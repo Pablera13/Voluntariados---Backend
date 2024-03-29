@@ -19,14 +19,14 @@ export class Sponsorship {
   @Column()
   enddate: Date;
 
-  @Column()
+  @Column('double')
   goal:number;
   
   @Column()
   state:boolean;
 
   @ManyToOne (type => Company, company => company.sponsorships)
-  company:number;
+  company:Company;
 
   @OneToMany (type => Donation, donation => donation.sponsorship)
   donations:Donation[];

@@ -9,6 +9,6 @@ finishDate: Date;
 category: string;
 quotas: string;
 description: string;
-company: number;
-contact: string;
+// company: number;
+// contact: string;
 }

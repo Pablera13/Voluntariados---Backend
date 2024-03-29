@@ -2,7 +2,7 @@
 import { Volunteer } from '../../volunteer/entities/volunteer.entity';
 import { Volunteering } from '../../volunteering/entities/volunteering.entity';
 
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from 'typeorm';
 
 @Entity()
 export class Rating {
@@ -15,13 +15,13 @@ export class Rating {
   @Column('int')
   stars: number;
 
-  @Column()
+  @CreateDateColumn()
   date: Date;
 
   @ManyToOne(type => Volunteering, volunteering => volunteering.ratings)
-  volunteering : number
+  volunteering : Volunteering
 
   @ManyToOne(type => Volunteer, volunteer => volunteer.ratings)
-  volunteer : number
+  volunteer : Volunteer
 }
 

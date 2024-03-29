@@ -8,6 +8,6 @@ export class CreateVolunteerDto {
     birthday: Date;
     address: string;
     itsVerified: boolean = false;
-    user: number;
+    // user: number;
     
 }

@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn  } from 'typeorm';
+import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn, JoinColumn  } from 'typeorm';
 import { Volunteering } from '../../volunteering/entities/volunteering.entity';
 import { Event } from '../../event/entities/event.entity';
 import { Sponsorship } from '../../sponsorship/entities/sponsorship.entity';
@@ -11,7 +11,7 @@ export class Company {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column("int")
   cedula: number;
 
   @Column()
@@ -20,7 +20,7 @@ export class Company {
   @Column()
   address: string;
 
-  @Column()
+  @Column('int')
   bankaccount: string;
 
   @Column()
@@ -35,8 +35,9 @@ export class Company {
   @OneToMany(type => Sponsorship, sponsorship => sponsorship.company)
   sponsorships: Sponsorship[];
 
-  @OneToOne (type => User, user => user.company , {onDelete: 'CASCADE'})
-  user: number;
+  @OneToOne(() => User)
+    @JoinColumn()
+    user: User
 }
 
 
