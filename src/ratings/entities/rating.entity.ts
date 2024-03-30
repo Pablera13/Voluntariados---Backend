@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
 import { Volunteer } from '../../volunteer/entities/volunteer.entity';
 import { Volunteering } from '../../volunteering/entities/volunteering.entity';

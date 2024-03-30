@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prettier/prettier */
 import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn, JoinColumn  } from 'typeorm';
 import { Volunteering } from '../../volunteering/entities/volunteering.entity';
 import { Event } from '../../event/entities/event.entity';

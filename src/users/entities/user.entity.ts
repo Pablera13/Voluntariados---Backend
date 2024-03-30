@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prettier/prettier */
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Company } from '../../company/entities/company.entity';
 import { Volunteer } from '../../volunteer/entities/volunteer.entity';
@@ -16,6 +19,9 @@ export class User {
   @OneToOne(type => Company, company => company.user)
   company: Company;
 
-  @OneToOne(type => Volunteer, volunteer => volunteer.user)
+  @OneToOne(() => Volunteer, volunteer => volunteer.user)
   volunteer: Volunteer;
+
+  //@OneToOne(type => User, user => user.volunteer)
+  //user: User;
 } 

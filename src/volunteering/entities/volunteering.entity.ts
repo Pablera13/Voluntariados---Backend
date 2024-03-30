@@ -1,4 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prettier/prettier */
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinTable, ManyToMany } from 'typeorm';
 import { Company } from '../../company/entities/company.entity';
 import { Rating } from '../../ratings/entities/rating.entity';
 
@@ -38,4 +41,8 @@ export class Volunteering {
 
     @OneToMany(type => Rating, rating => rating.volunteering)
     ratings: Rating[];
+
+    @ManyToMany(() => Volunteering)
+    @JoinTable()
+    volunteerings: Volunteering[];
 }

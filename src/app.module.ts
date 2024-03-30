@@ -22,8 +22,8 @@ import { join } from 'path';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '',
-      database: 'sistemavoluntariadodb',
+      password: 'jordi1298',
+      database: 'volunteeringdb',
       entities: [join(__dirname, '**', '*.entity.js')],
       synchronize: false, //cuando se vaya a correr el API por primera vez ponerlo en TRUE
       retryAttempts: 3,
