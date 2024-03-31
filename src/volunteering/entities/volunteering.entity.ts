@@ -1,9 +1,7 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prettier/prettier */
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinTable, ManyToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, ManyToMany } from 'typeorm';
 import { Company } from '../../company/entities/company.entity';
 import { Rating } from '../../ratings/entities/rating.entity';
+import { Volunteer } from '../../volunteer/entities/volunteer.entity';
 
 
 @Entity()
@@ -36,13 +34,12 @@ export class Volunteering {
     @Column({ length: 500 })
     contact: string;
 
-    @ManyToOne(type => Company, company => company.volunteerings)
+    @ManyToOne(() => Company, company => company.volunteerings)
     company: Company;
 
-    @OneToMany(type => Rating, rating => rating.volunteering)
+    @OneToMany(() => Rating, rating => rating.volunteering)
     ratings: Rating[];
 
-    @ManyToMany(() => Volunteering)
-    @JoinTable()
-    volunteerings: Volunteering[];
+    @ManyToMany(() => Volunteer, volunteer => volunteer.volunteerings)
+    volunteers: Volunteer[];
 }

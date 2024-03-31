@@ -16,12 +16,10 @@ export class User {
   @Column()
   password: string;
 
-  @OneToOne(type => Company, company => company.user)
+  @OneToOne(() => Company, company => company.user)
   company: Company;
 
   @OneToOne(() => Volunteer, volunteer => volunteer.user)
   volunteer: Volunteer;
 
-  //@OneToOne(type => User, user => user.volunteer)
-  //user: User;
 } 

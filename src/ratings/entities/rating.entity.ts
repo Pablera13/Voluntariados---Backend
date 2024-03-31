@@ -19,10 +19,10 @@ export class Rating {
   @CreateDateColumn()
   date: Date;
 
-  @ManyToOne(type => Volunteering, volunteering => volunteering.ratings)
+  @ManyToOne(() => Volunteering, volunteering => volunteering.ratings)
   volunteering : Volunteering
 
-  @ManyToOne(type => Volunteer, volunteer => volunteer.ratings)
+  @ManyToOne(() => Volunteer, volunteer => volunteer.ratings)
   volunteer : Volunteer
 }
 

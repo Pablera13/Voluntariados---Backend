@@ -25,10 +25,10 @@ export class Sponsorship {
   @Column()
   state:boolean;
 
-  @ManyToOne (type => Company, company => company.sponsorships)
+  @ManyToOne (() => Company, company => company.sponsorships)
   company:Company;
 
-  @OneToMany (type => Donation, donation => donation.sponsorship)
+  @OneToMany (() => Donation, donation => donation.sponsorship)
   donations:Donation[];
 }
 

@@ -9,7 +9,6 @@ import { SponsorshipModule } from './sponsorship/sponsorship.module';
 import { EventModule } from './event/event.module';
 import { DonationModule } from './donation/donation.module';
 import { VolunteerModule } from './volunteer/volunteer.module';
-import { VolunteerVolunteeringModule } from './volunteer_volunteering/volunteer_volunteering.module';
 import { VolunteeringModule } from './volunteering/volunteering.module';
 import { RatingsModule } from './ratings/ratings.module';
 import { AuthModule } from './auth/auth.module';
@@ -22,8 +21,8 @@ import { join } from 'path';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'jordi1298',
-      database: 'volunteeringdb',
+      password: '',
+      database: 'voluntariadodb',
       entities: [join(__dirname, '**', '*.entity.js')],
       synchronize: false, //cuando se vaya a correr el API por primera vez ponerlo en TRUE
       retryAttempts: 3,
@@ -35,7 +34,6 @@ import { join } from 'path';
     DonationModule,
     AuthModule,
     VolunteerModule,
-    VolunteerVolunteeringModule,
     VolunteeringModule,
     RatingsModule
   ],

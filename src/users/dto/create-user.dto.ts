@@ -1,6 +1,11 @@
-export class CreateUserDto {
+import { IsString, IsEmail, IsNotEmpty } from 'class-validator';
 
-    mail:string;
-    password:string;
-    
+export class CreateUserDto {
+    @IsNotEmpty()
+    @IsEmail()
+    mail: string;
+
+    @IsNotEmpty()
+    @IsString()
+    password: string;
 }

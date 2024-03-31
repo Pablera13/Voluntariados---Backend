@@ -29,7 +29,7 @@ export class Event {
   @Column()
   contact:string;
 
-  @ManyToOne(type => Company, company => company.events)
+  @ManyToOne(() => Company, company => company.events)
   company : Company;
 
   @ManyToMany(() => Volunteer, volunteer => volunteer.events)

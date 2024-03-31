@@ -28,18 +28,18 @@ export class Company {
   @Column()
   verified: boolean;
 
-  @OneToMany(type => Volunteering, volunteering => volunteering.company)
+  @OneToMany(() => Volunteering, volunteering => volunteering.company)
   volunteerings: Volunteering[];
 
-  @OneToMany(type => Event, event => event.company)
+  @OneToMany(() => Event, event => event.company)
   events: Event[];
 
-  @OneToMany(type => Sponsorship, sponsorship => sponsorship.company)
+  @OneToMany(() => Sponsorship, sponsorship => sponsorship.company)
   sponsorships: Sponsorship[];
 
   @OneToOne(() => User)
-    @JoinColumn()
-    user: User
+  @JoinColumn()
+  user: User
 }
 
 

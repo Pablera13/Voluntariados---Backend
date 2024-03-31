@@ -1,8 +1,13 @@
+import { IsNumber, IsNotEmpty} from 'class-validator';
+
 export class CreateDonationDto {
 
-    id:number;
-    amount:number;  
-    // sponsorship:number; 
-    // volunteer:number; 
-}
+  @IsNotEmpty()
+  @IsNumber()
+  amount: number;
 
+  // sponsorshipId: number;
+
+  // volunteerId: number;
+
+}
