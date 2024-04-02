@@ -13,7 +13,7 @@ export class Company {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column("int")
+  @Column({ type: 'int' })
   cedula: number;
 
   @Column()
@@ -22,8 +22,8 @@ export class Company {
   @Column()
   address: string;
 
-  @Column('int')
-  bankaccount: string;
+  @Column({ type: 'int' })
+  bankaccount: number;
 
   @Column()
   verified: boolean;
@@ -39,7 +39,7 @@ export class Company {
 
   @OneToOne(() => User)
   @JoinColumn()
-  user: User
+  user: User;
 }
 
 

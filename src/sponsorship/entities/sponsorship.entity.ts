@@ -19,7 +19,7 @@ export class Sponsorship {
   @Column()
   enddate: Date;
 
-  @Column('double')
+  @Column()
   goal:number;
   
   @Column()

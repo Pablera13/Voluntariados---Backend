@@ -10,7 +10,7 @@ export class Volunteer {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('int')
+  @Column({ type: 'int' })
   cedula: number;
 
   @Column({ length: 500 })
@@ -38,9 +38,9 @@ export class Volunteer {
   @JoinTable()
   events: Event[];
 
-  @OneToOne(() => User)
+  @OneToOne(() => User, {eager: true})
   @JoinColumn()
-  user: User
+  user: User;
 
   @OneToMany(() => Donation, donation => donation.volunteer)
   donations: Donation[];

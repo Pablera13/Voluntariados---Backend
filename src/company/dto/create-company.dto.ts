@@ -15,13 +15,16 @@ export class CreateCompanyDto {
   address: string;
 
   @IsNotEmpty()
-  @IsString()
-  bankaccount: string;
+  @IsInt()
+  bankaccount: number;
 
   @IsNotEmpty()
   @IsBoolean()
   verified: boolean;
 
-  userId: number;
+  // @IsNotEmpty()
+  // @IsInt()
+  // userId: number;
+
 
 }

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
@@ -16,16 +15,18 @@ import { join } from 'path';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'voluntariadodb',
-      entities: [join(__dirname, '**', '*.entity.js')],
-      synchronize: false, //cuando se vaya a correr el API por primera vez ponerlo en TRUE
-      retryAttempts: 3,
+    TypeOrmModule.forRootAsync({
+      useFactory: async () => ({
+        type: 'mysql',
+        host: 'localhost',
+        port: 3306,
+        username: 'root',
+        password: '',
+        database: 'voluntariadodb',
+        entities: [join(__dirname, '**', '*.entity.js')],
+        synchronize: true, //cuando se vaya a correr el API por primera vez ponerlo en TRUE
+        retryAttempts: 3,
+      }),
     }),
     UsersModule,
     CompanyModule,

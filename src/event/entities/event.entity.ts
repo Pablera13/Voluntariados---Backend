@@ -23,7 +23,7 @@ export class Event {
   @Column()
   category:string;
   
-  @Column('int')
+  @Column({ type: 'int' })
   quota:number;
 
   @Column()

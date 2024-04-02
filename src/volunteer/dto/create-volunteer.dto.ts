@@ -29,5 +29,7 @@ export class CreateVolunteerDto {
     @IsBoolean()
     itsVerified: boolean;
 
-    // user: number;
+    @IsNotEmpty()
+    @IsInt()
+    userId: number;
 }

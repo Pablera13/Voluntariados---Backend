@@ -7,22 +7,22 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } f
 
 @Entity()
 export class Rating {
-    @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   descripcion: string;
 
-  @Column('int')
+  @Column({ type: 'int' })
   stars: number;
 
   @CreateDateColumn()
   date: Date;
 
   @ManyToOne(() => Volunteering, volunteering => volunteering.ratings)
-  volunteering : Volunteering
+  volunteering : Volunteering;
 
   @ManyToOne(() => Volunteer, volunteer => volunteer.ratings)
-  volunteer : Volunteer
+  volunteer : Volunteer;
 }
 

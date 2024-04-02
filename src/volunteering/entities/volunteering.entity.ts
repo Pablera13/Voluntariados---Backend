@@ -10,7 +10,7 @@ export class Volunteering {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column('int')
+    @Column({ type: 'int' })
     cedula: number;
 
     @Column({ length: 500 })
@@ -25,7 +25,7 @@ export class Volunteering {
     @Column()
     category: string;
 
-    @Column('int')
+    @Column({ type: 'int' })
     quotas: string;
 
     @Column({ length: 500 })

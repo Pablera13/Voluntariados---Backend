@@ -7,14 +7,14 @@ export class Donation {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('double')
+  @Column()
   amount:number;
 
-  @ManyToOne(type => Sponsorship, sponsorship => sponsorship.donations)
-  sponsorship: Sponsorship
+  @ManyToOne(() => Sponsorship, sponsorship => sponsorship.donations)
+  sponsorship: Sponsorship;
 
-  @ManyToOne(type => Volunteer, volunteer => volunteer.donations)
-  volunteer: Volunteer
+  @ManyToOne(() => Volunteer, volunteer => volunteer.donations)
+  volunteer: Volunteer;
 
 }
 
