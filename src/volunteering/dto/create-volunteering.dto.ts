@@ -34,5 +34,7 @@ export class CreateVolunteeringDto {
     @IsString()
     contact: string;
 
-    // company: number; 
+    @IsNotEmpty()
+    @IsInt()
+    organizationId: number;
 }

@@ -27,19 +27,30 @@ export class VolunteerService {
   }
 
   async findAll() {
-    return await this.volunterRepository.find();
+    return await this.volunterRepository.find({
+      relations: {
+          volunteerings : true,
+          volunteeringvolunteers: true,
+          eventvolunteers : true
+      },
+  });
   }
 
   async findOne(id: number) {
-    return await this.volunterRepository.findOneBy({ id })
+    return await this.volunterRepository.findOne({
+      where: { id },
+      relations: {
+        volunteerings : true,
+        volunteeringvolunteers: true,
+        eventvolunteers : true
+    },
+    });
   }
+  
 
   async update(id: number, updateVolunteerDto: UpdateVolunteerDto) {
-    await this.findOne(id);
-    return await this.volunterRepository.update(id, {
-      ...updateVolunteerDto,
-      user: updateVolunteerDto.userId ? await this.validateUser(updateVolunteerDto.userId) : undefined,
-    })
+    const updateVolunteer = await this.volunterRepository.update({id}, updateVolunteerDto);
+    return updateVolunteer;
   }
 
   async remove(id: number) {

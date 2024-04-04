@@ -1,4 +1,4 @@
-import { IsString, IsDate, IsNumber, IsNotEmpty, IsOptional, MaxLength, Min, Max } from 'class-validator';
+import { IsString, IsDate, IsNumber, IsNotEmpty, IsOptional, MaxLength, Min, Max, IsInt } from 'class-validator';
 
 export class CreateEventDto {
 
@@ -33,5 +33,7 @@ export class CreateEventDto {
     @MaxLength(255)
     contact: string; 
 
-    // company: number;   
+    @IsNotEmpty()
+    @IsInt()
+    organizationId: number;  
 }

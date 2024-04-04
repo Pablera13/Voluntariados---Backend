@@ -25,12 +25,7 @@ export class VolunteerController {
 
   @Patch(':id')
   update(@Param('id') id: number, @Body() updateVolunteerDto: UpdateVolunteerDto) {
-  console.log('ID recibido:', id);
-  if (isNaN(id)) {
-    console.error('El ID no es un número válido.');
-  } else {
-    return this.volunteerService.update(id, updateVolunteerDto);
-  }
+    return this.volunteerService.update(+id, updateVolunteerDto);
 }
 
 

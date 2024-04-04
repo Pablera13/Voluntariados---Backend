@@ -1,7 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, ManyToMany } from 'typeorm';
-import { Company } from '../../company/entities/company.entity';
+import { Organization } from '../../organization/entities/organization.entity';
 import { Rating } from '../../ratings/entities/rating.entity';
 import { Volunteer } from '../../volunteer/entities/volunteer.entity';
+import { VolunteeringVolunteer } from 'src/volunteering_volunteer/entities/volunteering_volunteer.entity';
 
 
 @Entity()
@@ -34,12 +35,15 @@ export class Volunteering {
     @Column({ length: 500 })
     contact: string;
 
-    @ManyToOne(() => Company, company => company.volunteerings)
-    company: Company;
+    @ManyToOne(() => Organization, organization => organization.volunteerings)
+    organization: Organization;
 
-    @OneToMany(() => Rating, rating => rating.volunteering)
+    @OneToMany(() => Rating, rating => rating.volunteering, {eager: true})
     ratings: Rating[];
 
-    @ManyToMany(() => Volunteer, volunteer => volunteer.volunteerings)
+    @ManyToMany(() => Volunteer, volunteer => volunteer.volunteerings, {eager: true})
     volunteers: Volunteer[];
+
+    @OneToMany(() => VolunteeringVolunteer, volunteeringvolunteer => volunteeringvolunteer.volunteering, {eager: true})
+    volunteeringvolunteers: VolunteeringVolunteer[];
 }

@@ -1,9 +1,10 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Company } from '../../company/entities/company.entity';
-import { Donation } from '../../donation/entities/donation.entity';
+import { Donation } from "src/donation/entities/donation.entity";
+import { Organization } from "src/organization/entities/organization.entity";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Sponsorship {
+
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -25,11 +26,10 @@ export class Sponsorship {
   @Column()
   state:boolean;
 
-  @ManyToOne (() => Company, company => company.sponsorships)
-  company:Company;
+  @ManyToOne (() => Organization, organization => organization.sponsorships)
+  organization:Organization;
 
-  @OneToMany (() => Donation, donation => donation.sponsorship)
+  @OneToMany (() => Donation, donation => donation.sponsorship, {eager: true})
   donations:Donation[];
+
 }
-
-

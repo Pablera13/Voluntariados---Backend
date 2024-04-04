@@ -10,6 +10,7 @@ import { UsersModule } from 'src/users/users.module';
 @Module({
   imports:[TypeOrmModule.forFeature([Volunteer]), UsersModule],
   controllers: [VolunteerController],
-  providers: [VolunteerService, UsersService],
+  providers: [VolunteerService],
+  exports: [TypeOrmModule, VolunteerService]
 })
 export class VolunteerModule {}

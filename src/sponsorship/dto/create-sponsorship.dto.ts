@@ -1,6 +1,7 @@
-import { IsString, IsDate, IsNumber, IsBoolean, IsNotEmpty } from 'class-validator';
+import { IsString, IsDate, IsNumber, IsBoolean, IsNotEmpty, IsInt } from 'class-validator';
 
 export class CreateSponsorshipDto {
+
     @IsNotEmpty()
     @IsString()
     name: string;
@@ -25,5 +26,7 @@ export class CreateSponsorshipDto {
     @IsBoolean()
     state: boolean;
 
-    // company: number;
+    @IsNotEmpty()
+    @IsInt()
+    organizationId: number;
 }

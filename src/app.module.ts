@@ -3,15 +3,17 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
-import { CompanyModule } from './company/company.module';
-import { SponsorshipModule } from './sponsorship/sponsorship.module';
 import { EventModule } from './event/event.module';
-import { DonationModule } from './donation/donation.module';
 import { VolunteerModule } from './volunteer/volunteer.module';
 import { VolunteeringModule } from './volunteering/volunteering.module';
 import { RatingsModule } from './ratings/ratings.module';
 import { AuthModule } from './auth/auth.module';
 import { join } from 'path';
+import { OrganizationModule } from './organization/organization.module';
+import { SponsorshipModule } from './sponsorship/sponsorship.module';
+import { DonationModule } from './donation/donation.module';
+import { VolunteeringVolunteerModule } from './volunteering_volunteer/volunteering_volunteer.module';
+import { EventVolunteerModule } from './event_volunteer/event_volunteer.module';
 
 @Module({
   imports: [
@@ -24,19 +26,21 @@ import { join } from 'path';
         password: '',
         database: 'voluntariadodb',
         entities: [join(__dirname, '**', '*.entity.js')],
-        synchronize: true, //cuando se vaya a correr el API por primera vez ponerlo en TRUE
+        synchronize: false, 
         retryAttempts: 3,
       }),
     }),
     UsersModule,
-    CompanyModule,
-    SponsorshipModule,
     EventModule,
-    DonationModule,
     AuthModule,
     VolunteerModule,
     VolunteeringModule,
-    RatingsModule
+    RatingsModule,
+    OrganizationModule,
+    SponsorshipModule,
+    DonationModule,
+    VolunteeringVolunteerModule,
+    EventVolunteerModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,37 +1,52 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateEventDto } from './dto/create-Event.dto';
 import { UpdateEventDto } from './dto/update-Event.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Event } from './entities/Event.entity';
 import { Repository } from 'typeorm';
+import { Organization } from 'src/organization/entities/organization.entity';
 
 @Injectable()
 export class EventService {
 
   constructor(
     @InjectRepository(Event)
-    private EventRepository: Repository<Event>,
+    private eventRepository: Repository<Event>,
+    @InjectRepository(Organization)
+    private readonly organizationRepository: Repository<Organization>
   ){}
 
   async create(createEventDto: CreateEventDto) {
-    return await this.EventRepository.save(createEventDto);
+    const organization = await this.validateOrganization(createEventDto.organizationId);
+    return await this.eventRepository.save({
+      ...createEventDto,
+      organization: organization
+    });
   }
 
   async findAll() {
-    return await this.EventRepository.find();
+    return await this.eventRepository.find();
   }
 
   async findOne(id: number) {
-    return await this.EventRepository.findOneBy({id});
+    return await this.eventRepository.findOneBy({id});
   }
 
   async update(id: number, updateEventDto: UpdateEventDto) {
-    var updateUser = await this.EventRepository.update({id}, updateEventDto);
-    return updateUser;
+    var updatEvent = await this.eventRepository.update({id}, updateEventDto);
+    return updatEvent;
 
   }
 
   async remove(id: number) {
-    return await this.EventRepository.delete(id);
+    return await this.eventRepository.delete(id);
+  }
+
+  private async validateOrganization(organizationId: number) {
+    const organization = await this.organizationRepository.findOneBy({ id: organizationId });
+    if (!organization) {
+      throw new BadRequestException('Organization not found');
+    }
+    return organization;
   }
 }

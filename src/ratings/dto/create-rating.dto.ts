@@ -1,10 +1,10 @@
-import { IsNotEmpty, IsNumber, IsString, IsDate } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString, IsDate, IsInt } from 'class-validator';
 
 export class CreateRatingDto {
 
     @IsNotEmpty()
     @IsString()
-    description: string;
+    descripcion: string;
 
     @IsNotEmpty()
     @IsNumber()
@@ -14,7 +14,12 @@ export class CreateRatingDto {
     @IsDate()
     date: Date;
 
-    // volunteering: number;
+    @IsNotEmpty()
+    @IsInt()
+    volunteeringId: number; 
 
-    // volunteer: number;
+    @IsNotEmpty()
+    @IsInt()
+    volunteerId: number; 
+
 }

@@ -1,21 +1,20 @@
-import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Sponsorship } from '../../sponsorship/entities/sponsorship.entity';
-import { Volunteer } from '../../volunteer/entities/volunteer.entity';
+import { Sponsorship } from "src/sponsorship/entities/sponsorship.entity";
+import { Volunteer } from "src/volunteer/entities/volunteer.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Donation {
-  @PrimaryGeneratedColumn()
-  id: number;
 
-  @Column()
-  amount:number;
+    @PrimaryGeneratedColumn()
+    id: number;
 
-  @ManyToOne(() => Sponsorship, sponsorship => sponsorship.donations)
-  sponsorship: Sponsorship;
+    @Column()
+    amount: number;
 
-  @ManyToOne(() => Volunteer, volunteer => volunteer.donations)
-  volunteer: Volunteer;
+    @ManyToOne(() => Sponsorship, sponsorship => sponsorship.donations)
+    sponsorship: Sponsorship;
+
+    @ManyToOne(() => Volunteer, volunteer => volunteer.donations)
+    volunteer: Volunteer;
 
 }
-
-

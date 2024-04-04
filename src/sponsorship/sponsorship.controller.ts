@@ -18,17 +18,17 @@ export class SponsorshipController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number) {
+  findOne(@Param('id') id: string) {
     return this.sponsorshipService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: number, @Body() updateSponsorshipDto: UpdateSponsorshipDto) {
+  update(@Param('id') id: string, @Body() updateSponsorshipDto: UpdateSponsorshipDto) {
     return this.sponsorshipService.update(+id, updateSponsorshipDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: number) {
+  remove(@Param('id') id: string) {
     return this.sponsorshipService.remove(+id);
   }
 }
