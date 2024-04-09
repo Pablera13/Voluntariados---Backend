@@ -41,8 +41,8 @@ export class Volunteering {
     @OneToMany(() => Rating, rating => rating.volunteering, {eager: true})
     ratings: Rating[];
 
-    @ManyToMany(() => Volunteer, volunteer => volunteer.volunteerings, {eager: true})
-    volunteers: Volunteer[];
+    // @ManyToMany(() => Volunteer, volunteer => volunteer.volunteerings, {eager: true})
+    // volunteers: Volunteer[];
 
     @OneToMany(() => VolunteeringVolunteer, volunteeringvolunteer => volunteeringvolunteer.volunteering, {eager: true})
     volunteeringvolunteers: VolunteeringVolunteer[];

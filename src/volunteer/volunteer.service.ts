@@ -29,7 +29,6 @@ export class VolunteerService {
   async findAll() {
     return await this.volunterRepository.find({
       relations: {
-          volunteerings : true,
           volunteeringvolunteers: true,
           eventvolunteers : true
       },
@@ -40,7 +39,6 @@ export class VolunteerService {
     return await this.volunterRepository.findOne({
       where: { id },
       relations: {
-        volunteerings : true,
         volunteeringvolunteers: true,
         eventvolunteers : true
     },
