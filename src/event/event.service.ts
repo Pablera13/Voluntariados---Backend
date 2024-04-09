@@ -33,9 +33,9 @@ export class EventService {
   }
 
   async update(id: number, updateEventDto: UpdateEventDto) {
-    var updatEvent = await this.eventRepository.update({id}, updateEventDto);
-    return updatEvent;
-
+    await this.eventRepository.update({id}, updateEventDto);
+    const event = await this.findOne(id)
+    return event;
   }
 
   async remove(id: number) {

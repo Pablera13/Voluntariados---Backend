@@ -33,8 +33,9 @@ export class SponsorshipService {
   }
 
   async update(id: number, updateSponsorshipDto: UpdateSponsorshipDto) {
-    const updateSponsorship = await this.sponsorshiRepository.update({id}, updateSponsorshipDto);
-    return updateSponsorship;
+    await this.sponsorshiRepository.update({id}, updateSponsorshipDto);
+    const sponsorship = await this.findOne(id)
+    return sponsorship;
   }
 
   async remove(id: number) {

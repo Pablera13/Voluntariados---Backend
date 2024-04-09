@@ -42,8 +42,9 @@ export class RatingsService {
   }
 
   async update(id: number, updateRatingDto: UpdateRatingDto) {
-    const updateRating = await this.ratingRepository.update({id}, updateRatingDto)
-    return updateRating;
+    await this.ratingRepository.update({id}, updateRatingDto);
+    const rating = await this.findOne(id)
+    return rating;
   }
 
   async remove(id: number) {

@@ -35,8 +35,9 @@ export class VolunteeringService {
   }
 
   async update(id: number, updateVolunteeringDto: UpdateVolunteeringDto) {
-    const updateVoluntering = await this.volunteringRepository.update({id}, updateVolunteeringDto);
-    return updateVoluntering;
+    await this.volunteringRepository.update({id}, updateVolunteeringDto);
+    const event = await this.findOne(id)
+    return event;
   }
 
   async remove(id: number) {

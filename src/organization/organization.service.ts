@@ -34,8 +34,9 @@ export class OrganizationService {
   }
 
   async update(id: number, updateOrganizationDto: UpdateOrganizationDto) {
-    const updateOrganization = await this.organizationRepository.update({id}, updateOrganizationDto);
-    return updateOrganization;
+    await this.organizationRepository.update({id}, updateOrganizationDto);
+    const organization = await this.findOne(id)
+    return organization;
   }
 
   async remove(id: number) {

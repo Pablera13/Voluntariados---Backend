@@ -47,10 +47,10 @@ export class VolunteerService {
     });
   }
   
-
   async update(id: number, updateVolunteerDto: UpdateVolunteerDto) {
-    const updateVolunteer = await this.volunterRepository.update({id}, updateVolunteerDto);
-    return updateVolunteer;
+    await this.volunterRepository.update({id}, updateVolunteerDto);
+    const volunter = await this.findOne(id)
+    return volunter;
   }
 
   async remove(id: number) {

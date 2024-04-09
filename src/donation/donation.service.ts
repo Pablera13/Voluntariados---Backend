@@ -40,8 +40,9 @@ export class DonationService {
   }
 
   async update(id: number, updateDonationDto: UpdateDonationDto) {
-    const updateDonation = await this.donationRepository.update({id}, updateDonationDto);
-    return updateDonation;
+    await this.donationRepository.update({id}, updateDonationDto);
+    const donation = await this.findOne(id)
+    return donation;
   }
 
   async remove(id: number) {

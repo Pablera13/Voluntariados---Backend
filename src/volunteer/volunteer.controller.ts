@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { VolunteerService } from './volunteer.service';
 import { CreateVolunteerDto } from './dto/create-volunteer.dto';
 import { UpdateVolunteerDto } from './dto/update-volunteer.dto';
@@ -18,19 +19,36 @@ export class VolunteerController {
     return this.volunteerService.findAll();
   }
 
+
   @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.volunteerService.findOne(+id);
-  }
+  async findOne(@Param('id') id: number, @Res() res: Response) {
+    const volunteer = await this.volunteerService.findOne(+id);
+    if (volunteer){
+      return res.status(200).json(volunteer);
+    } else {
+      return res.status(404).json({ error: 'Volunteer not found' });
+  }}
 
-  @Patch(':id')
-  update(@Param('id') id: number, @Body() updateVolunteerDto: UpdateVolunteerDto) {
-    return this.volunteerService.update(+id, updateVolunteerDto);
-}
+@Patch(':id')
+  async update(@Param('id') id: number, @Body() updateVolunteerDto: UpdateVolunteerDto, @Res() res: Response) {
+
+    const volunteer = await this.volunteerService.update(+id, updateVolunteerDto);
+    if (volunteer){
+      return res.status(200).json(volunteer);
+    } else {
+      return res.status(404).json({ error: 'Volunteer not found' });
+    }}
 
 
-  @Delete(':id')
-  remove(@Param('id') id: number) {
-    return this.volunteerService.remove(+id);
-  }
+    @Delete(':id')
+    async remove(@Param('id') id: number, @Res() res: Response) {
+
+      const volunteer = await this.volunteerService.findOne(+id);
+      if (volunteer){
+      this.volunteerService.remove(+id);
+      return res.status(200).json({ message: 'Volunteer deleted successfully' });
+    } else {
+      return res.status(404).json({ error: 'Volunteer not found' });
+    }}
+
 }
