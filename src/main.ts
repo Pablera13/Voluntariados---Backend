@@ -10,6 +10,13 @@ async function bootstrap() {
     transform: true,
   })
   app.useGlobalPipes(MyValidationPipe);
+
+  app.enableCors({
+    origin: '*',
+    allowedHeaders: '*',
+    methods: '*',
+  });
+
   await app.listen(3000);
 
 }

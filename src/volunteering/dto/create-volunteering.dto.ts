@@ -1,21 +1,17 @@
-import { IsInt, IsString, IsDate, IsNotEmpty } from 'class-validator';
+import { IsInt, IsString, IsDateString, IsNotEmpty } from 'class-validator';
 
 export class CreateVolunteeringDto {
  
-    @IsNotEmpty()
-    @IsInt()
-    cedula: number;
-
     @IsNotEmpty()
     @IsString()
     projectName: string;
 
     @IsNotEmpty()
-    @IsDate()
+    @IsDateString()
     startDate: Date;
 
     @IsNotEmpty()
-    @IsDate()
+    @IsDateString()
     finishDate: Date;
 
     @IsNotEmpty()
@@ -29,6 +25,10 @@ export class CreateVolunteeringDto {
     @IsNotEmpty()
     @IsString()
     description: string;
+
+    @IsNotEmpty()
+    @IsString()
+    requirements: string;
 
     @IsNotEmpty()
     @IsString()

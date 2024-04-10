@@ -33,8 +33,8 @@ export class Event {
   @ManyToOne(() => Organization, organization => organization.events)
   organization : Organization;
 
-  @ManyToMany(() => Volunteer, volunteer => volunteer.events)
-  volunteers: Volunteer[];
+  // @ManyToMany(() => Volunteer, volunteer => volunteer.events)
+  // volunteers: Volunteer[];
 
   @OneToMany(() => EventVolunteer, eventvolunteer => eventvolunteer.event, {eager: true})
   eventvolunteers: EventVolunteer[];

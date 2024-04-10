@@ -1,4 +1,4 @@
-import { IsString, IsDate, IsNumber, IsBoolean, IsNotEmpty, IsInt } from 'class-validator';
+import { IsString, IsDateString, IsNumber, IsBoolean, IsNotEmpty, IsInt } from 'class-validator';
 
 export class CreateSponsorshipDto {
 
@@ -11,11 +11,11 @@ export class CreateSponsorshipDto {
     description: string;
 
     @IsNotEmpty()
-    @IsDate()
+    @IsDateString()
     startdate: Date;
 
     @IsNotEmpty()
-    @IsDate()
+    @IsDateString()
     enddate: Date;
 
     @IsNotEmpty()

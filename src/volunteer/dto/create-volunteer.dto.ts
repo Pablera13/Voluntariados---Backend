@@ -1,4 +1,4 @@
-import { IsInt, IsString, IsDate, IsBoolean, IsNotEmpty } from 'class-validator';
+import { IsInt, IsString, IsBoolean, IsNotEmpty, IsDateString } from 'class-validator';
 
 export class CreateVolunteerDto {
 
@@ -19,7 +19,7 @@ export class CreateVolunteerDto {
     lastName2: string;
 
     @IsNotEmpty()
-    @IsDate()
+    @IsDateString()
     birthday: Date;
 
     @IsNotEmpty()

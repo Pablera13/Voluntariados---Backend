@@ -11,9 +11,6 @@ export class Volunteering {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: 'int' })
-    cedula: number;
-
     @Column({ length: 500 })
     projectName: string;
 
@@ -31,6 +28,9 @@ export class Volunteering {
 
     @Column({ length: 500 })
     description: string;
+
+    @Column({ length: 500 })
+    requirements : string;
 
     @Column({ length: 500 })
     contact: string;

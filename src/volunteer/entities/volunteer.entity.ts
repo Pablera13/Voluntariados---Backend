@@ -36,9 +36,9 @@ export class Volunteer {
   @OneToMany(() => Rating, rating => rating.volunteer, {eager: true})
   ratings: Rating[]
 
-  @ManyToMany(() => Event, event => event.volunteers)
-  @JoinTable()
-  events: Event[];
+  // @ManyToMany(() => Event, event => event.volunteers)
+  // @JoinTable()
+  // events: Event[];
 
   @OneToOne(() => User, {eager: true})
   @JoinColumn()

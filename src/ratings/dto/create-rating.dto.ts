@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString, IsDate, IsInt } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString, IsDateString, IsInt } from 'class-validator';
 
 export class CreateRatingDto {
 
@@ -11,7 +11,7 @@ export class CreateRatingDto {
     stars: number;
 
     @IsNotEmpty()
-    @IsDate()
+    @IsDateString()
     date: Date;
 
     @IsNotEmpty()
