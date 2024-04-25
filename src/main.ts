@@ -17,7 +17,7 @@ async function bootstrap() {
     methods: '*',
   });
 
-  const PORT = process.env.PORT || 3000; // Utilizar el puerto proporcionado por Azure o el 3000 si no está definido
+  const PORT = process.env.PORT || 3000; 
   await app.listen(PORT);
 }
 bootstrap();
