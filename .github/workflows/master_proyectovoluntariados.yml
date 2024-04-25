@@ -23,8 +23,11 @@ jobs:
           npm install
           npm run build --if-present
       
+      # - name: Create ZIP archive
+      #   run: zip -r node-app.zip .
+
       - name: Create ZIP archive
-        run: zip -r node-app.zip .
+        run: Compress-Archive -Path . -DestinationPath node-app.zip
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
