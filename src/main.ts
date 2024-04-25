@@ -17,7 +17,7 @@ async function bootstrap() {
     methods: '*',
   });
 
-  const PORT = process.env.PORT || 3000; 
-  await app.listen(PORT);
+  // const PORT = process.env.PORT || 3000; 
+  await app.listen(3000);
 }
 bootstrap();
