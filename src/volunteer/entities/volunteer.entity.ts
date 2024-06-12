@@ -40,6 +40,9 @@ export class Volunteer {
   // @JoinTable()
   // events: Event[];
 
+  @Column()
+  userId:number;
+  
   @OneToOne(() => User, {eager: true})
   @JoinColumn()
   user: User;

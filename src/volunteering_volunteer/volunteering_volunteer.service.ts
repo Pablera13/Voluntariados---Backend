@@ -22,7 +22,11 @@ export class VolunteeringVolunteerService {
 
 
   async create(createVolunteeringVolunteerDto: CreateVolunteeringVolunteerDto) {
-    const volunteer = await this.validateVolunteer(createVolunteeringVolunteerDto.volunteerId);
+    
+    const volunteer = await this.volunteerRepository.findOneBy({
+      userId: createVolunteeringVolunteerDto.userId,
+    });
+
     const volunteering = await this.validateVolunteering(createVolunteeringVolunteerDto.volunteeringId);
 
 
