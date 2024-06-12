@@ -61,4 +61,3 @@ jobs:
           app-name: 'ProyectoVoluntariados'
           slot-name: 'Production'
           package: .
-          
