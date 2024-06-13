@@ -19,9 +19,9 @@ export class UsersController {
   }
 
 
-  @Get(':mail')
-  async findOne(@Param('mail') mail: string, @Res() res: Response) {
-    const user = await this.usersService.findOne(mail);
+  @Get(':id')
+  async findOne(@Param('id') id: number, @Res() res: Response) {
+    const user = await this.usersService.findOne(id);
     if (user){
       return res.status(200).json(user);
     } else {
