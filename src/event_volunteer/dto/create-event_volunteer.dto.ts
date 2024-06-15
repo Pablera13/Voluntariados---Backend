@@ -4,7 +4,7 @@ export class CreateEventVolunteerDto {
 
     @IsNotEmpty()
     @IsInt()
-    volunteerId: number;
+    userId: number;
 
     @IsNotEmpty()
     @IsInt()

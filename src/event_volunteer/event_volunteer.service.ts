@@ -22,7 +22,9 @@ export class EventVolunteerService {
 
   async create(createEventVolunteerDto: CreateEventVolunteerDto) {
     const event = await this.validateEvent(createEventVolunteerDto.eventId);
-    const volunteer = await this.validateVolunteer(createEventVolunteerDto.volunteerId);
+    const volunteer = await this.volunterRepository.findOneBy({
+      userId: createEventVolunteerDto.userId,
+    });
 
     return await this.eventvolunteerRepository.save({
       event: event,

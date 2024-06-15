@@ -19,6 +19,17 @@ import { EventVolunteerModule } from './event_volunteer/event_volunteer.module';
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
+      // useFactory: async () => ({
+      //   type: 'mysql',
+      //   host: 'MYSQL5048.site4now.net',
+      //   port: 3306,
+      //   username: 'aa771b_volundb',
+      //   // password: 'glorysecret123',
+      //   database: 'db_aa771b_volundb',
+      //   entities: [join(__dirname, '**', '*.entity.js')],
+      //   synchronize: false, 
+      //   retryAttempts: 3,
+      // }),
       useFactory: async () => ({
         type: 'mysql',
         host: 'localhost',

@@ -19,7 +19,6 @@ export class CreateVolunteeringDto {
     category: string;
 
     @IsNotEmpty()
-    @IsInt()
     quotas: string;
 
     @IsNotEmpty()

@@ -16,6 +16,8 @@ export class User {
   @Column()
   password: string;
 
+  
+
   @OneToOne(() => Organization, organization => organization.user)
   organization: Organization;
 
