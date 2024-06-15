@@ -30,9 +30,17 @@ export class VolunteeringService {
     return await this.volunteringRepository.find();
   }
 
+  // async findOne(id: number) {
+  //   return await this.volunteringRepository.findOneBy({id});
+  // }
+
   async findOne(id: number) {
-    return await this.volunteringRepository.findOneBy({id});
+    return await this.volunteringRepository.findOne({
+      where: { id },
+      relations: ['volunteeringvolunteers', 'volunteeringvolunteers.volunteer'],
+    });
   }
+  
 
   async update(id: number, updateVolunteeringDto: UpdateVolunteeringDto) {
     await this.volunteringRepository.update({id}, updateVolunteeringDto);

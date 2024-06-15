@@ -2,7 +2,7 @@ import { IsInt, IsNotEmpty } from "class-validator";
 
 export class CreateVolunteeringVolunteerDto {
     @IsInt()
-    userId: number;
+    volunteerId: number;
     
     @IsNotEmpty()
     @IsInt()

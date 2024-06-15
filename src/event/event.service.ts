@@ -28,8 +28,15 @@ export class EventService {
     return await this.eventRepository.find();
   }
 
+  // async findOne(id: number) {
+  //   return await this.eventRepository.findOneBy({id});
+  // }
+
   async findOne(id: number) {
-    return await this.eventRepository.findOneBy({id});
+    return await this.eventRepository.findOne({
+      where: { id },
+      relations: ['eventvolunteers', 'eventvolunteers.volunteer'],
+    });
   }
 
   async update(id: number, updateEventDto: UpdateEventDto) {

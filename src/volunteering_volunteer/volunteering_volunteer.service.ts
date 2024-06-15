@@ -24,7 +24,7 @@ export class VolunteeringVolunteerService {
   async create(createVolunteeringVolunteerDto: CreateVolunteeringVolunteerDto) {
     
     const volunteer = await this.volunteerRepository.findOneBy({
-      userId: createVolunteeringVolunteerDto.userId,
+      id: createVolunteeringVolunteerDto.volunteerId,
     });
 
     const volunteering = await this.validateVolunteering(createVolunteeringVolunteerDto.volunteeringId);
