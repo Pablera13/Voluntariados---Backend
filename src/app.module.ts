@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
@@ -23,7 +24,7 @@ import { EventVolunteerModule } from './event_volunteer/event_volunteer.module';
         host: 'localhost',
         port: 3306,
         username: 'root',
-        password: 'root',
+        password: 'jordi1298',
         database: 'volunteeringdb',
         entities: [join(__dirname, '**', '*.entity.js')],
         synchronize: false, 

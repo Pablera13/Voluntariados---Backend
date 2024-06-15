@@ -1,4 +1,5 @@
-import { IsInt, IsString, IsBoolean, IsNotEmpty } from 'class-validator';
+/* eslint-disable prettier/prettier */
+import { IsInt, IsString, IsBoolean, IsNotEmpty, IsUrl } from 'class-validator';
 
 export class CreateOrganizationDto {
 
@@ -13,6 +14,10 @@ export class CreateOrganizationDto {
     @IsNotEmpty()
     @IsString()
     address: string;
+
+    @IsNotEmpty()
+    @IsUrl()
+    imageUrl: string;
   
     @IsNotEmpty()
     @IsInt()
