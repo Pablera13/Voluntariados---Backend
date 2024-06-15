@@ -1,8 +1,12 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { CreateEventDto } from './dto/create-Event.dto';
-import { UpdateEventDto } from './dto/update-Event.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Event } from './entities/Event.entity';
+
+
+import { CreateEventDto } from 'src/event/dto/create-event.dto';
+import { UpdateEventDto } from 'src/event/dto/update-event.dto';
+import {Event} from 'src/event/entities/event.entity';
+
+
 import { Repository } from 'typeorm';
 import { Organization } from 'src/organization/entities/organization.entity';
 
